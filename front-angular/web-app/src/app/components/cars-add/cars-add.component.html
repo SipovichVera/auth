@@ -1,0 +1,32 @@
+<div class="add-car">
+    <div class="container">
+        <div class="data">
+            <div class="car-model field">
+                <label class="label-car-model">Model</label>
+                <input type="text" class="input-model" required [(ngModel)]="car.model">
+            </div>
+            <div class="car-mark field">
+                <label class="label-car-mark">Mark</label>
+                <input type="text" class="input-mark" required [(ngModel)]="car.mark">
+            </div>
+            <div class="car-color field">
+                <label class="label-car-color">Color</label>
+                <input type="text" class="input-color" required [(ngModel)]="car.color">
+            </div>
+            <div class="car-price field">
+                <label class="label-car-price">Price</label>
+                <input type="text" class="input-price" required [(ngModel)]="car.price">
+            </div>
+            <div class="car-published field">
+                <label class="label-car-published">Is published</label>
+                <input type="checkbox"  class="input-published" required [(ngModel)]="car.published">
+            </div>
+        </div>
+        <div class="save-car save">
+            <button class="save__car-btn" (click)="addCar()">Add</button>
+            <div class="save__success-message" *ngIf="submitted">
+                <h5>Added!</h5>
+            </div>
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,37 @@
+// .container {
+// }
+
+.field {
+    clear: both; 
+    text-align: right;
+    line-height: 20px;
+    
+}
+
+label {
+    float: left;
+    margin-bottom: 15px;
+}
+
+input {
+    margin-left: 30px;
+}
+
+.data {
+    position: relative;
+    float: left;
+}
+
+.car-published {
+    text-align: left;
+}
+
+.save {
+    position: absolute;
+    display:flex;
+    margin-top: 180px;
+}
+
+.save__car-btn {
+    margin-right: 30px;
+}
