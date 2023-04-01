@@ -3,8 +3,12 @@ label {
 }
 
 button {
-    background: rgb(197, 178, 178);
-    box-shadow: 10px 10px 10px rgb(202, 198, 198);
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: #008a5e;
+    font-weight: 500;
+    background: rgb(255, 255, 255);
+    border: 2px solid #008a5e;
 }
 
 .label-password {

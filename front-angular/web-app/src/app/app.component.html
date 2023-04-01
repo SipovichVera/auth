@@ -1,9 +1,10 @@
+<img src="logo_bntu.png" width="50" height="50">
 <div class="container">
   <div class="nav">
-    <a routerLink="/signup">Registr</a>
-    <a routerLink="/signin">Login</a>
-    <a *ngIf="isAdmin | async" routerLink="/add">Add car</a>
-    <a *ngIf="isRegistr | async" routerLink="/cars">Cars</a>
+    <a routerLink="/signup">Регистрация</a>
+    <a routerLink="/signin">Войти</a>
+    <!-- <a *ngIf="isAdmin | async" routerLink="/add">Add car</a>
+    <a *ngIf="isRegistr | async" routerLink="/cars">Cars</a> -->
     <a *ngIf="isRegistr | async" (click)="logOut()" href="#">Log Out</a>
   </div>
   <router-outlet></router-outlet>

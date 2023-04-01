@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CarsListComponent } from './components/cars-list/cars-list.component';
 import { CarsAddComponent } from './components/cars-add/cars-add.component';
 import { CarsDetailsComponent } from './components/cars-details/cars-details.component';
+import { VideoChatComponent } from './components/video-chat/video-chat.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CarsDetailsComponent } from './components/cars-details/cars-details.com
     LoginComponent,
     CarsListComponent,
     CarsAddComponent,
-    CarsDetailsComponent
+    CarsDetailsComponent,
+    VideoChatComponent
   ],
   imports: [
     BrowserModule,

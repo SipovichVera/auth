@@ -23,6 +23,10 @@ function initial() {
       id: 2,
       name: "admin"
     });
+    Role.create({
+      id: 3,
+      name: "tutor"
+    });
   }
 
 let corsOptions = {
