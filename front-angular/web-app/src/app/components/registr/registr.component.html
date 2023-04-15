@@ -1,58 +1,64 @@
 <div class="registr">
-    <div class="registr__container">
-      <form
-        *ngIf="!(isRegistr | async)"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
-        <div class="form-group">
-          <label for="username">Логин</label>
-          <input
-            type="text"
-            class="username-input"
-            name="username"
-            [(ngModel)]="form.username"
-            required
-            minlength="3"
-            maxlength="20"
-            #username="ngModel"
-          />
-          <div class="username-danger" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors['required']">Обязательное поле</div>
-            <div *ngIf="username.errors['minlength']">
-              Минимум 3 символа
-                <div *ngIf="username.errors['maxlength']">
-                  Максимум 20 символов
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="form-group">
-          <label class="label-password" for="password">Пароль</label>
-          <input
-            type="password"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="4"
-            #password="ngModel"
-          />
-          <div class="pass-danger" *ngIf="password.errors && f.submitted">
-            <div *ngIf="password.errors['required']">Обязательное поле</div>
-            <div *ngIf="password.errors['minlength']">
-              Минимум 3 символа
+  <div class="registr__container">
+    <form *ngIf="!(isRegistr | async)" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">Логин</label>
+        <input type="text" class="username-input" name="username" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel" />
+        <div class="username-danger" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Обязательное поле</div>
+          <div *ngIf="username.errors['minlength']">
+            Минимум 3 символа
+            <div *ngIf="username.errors['maxlength']">
+              Максимум 20 символов
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <button>Регистрация</button>
+      </div>
+      <div class="form-group">
+        <label class="label-password" for="password">Пароль</label>
+        <input type="password" name="password" [(ngModel)]="form.password" required minlength="4" #password="ngModel" />
+        <div class="pass-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Обязательное поле</div>
+          <div *ngIf="password.errors['minlength']">
+            Минимум 3 символа
+          </div>
         </div>
-        <div *ngIf="f.submitted && isFail">
-          Ошибка регистрации<br />
+      </div>
+      <div class="form-group">
+        <label for="surname">Фамилия</label>
+        <input type="text" class="username-input" name="surname" [(ngModel)]="form.surname" required minlength="3"
+          maxlength="20" #surname="ngModel" />
+        <div class="username-danger" *ngIf="surname.errors && f.submitted">
+          <div *ngIf="surname.errors['required']">Обязательное поле</div>
+          <div *ngIf="surname.errors['minlength']">
+            Минимум 3 символа
+            <div *ngIf="surname.errors['maxlength']">
+              Максимум 20 символов
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" class="username-input" name="name" [(ngModel)]="form.name" required minlength="3"
+          maxlength="20" #name="ngModel" />
+        <div class="name-danger" *ngIf="name.errors && f.submitted">
+          <div *ngIf="name.errors['required']">Обязательное поле</div>
+          <div *ngIf="name.errors['minlength']">
+            Минимум 3 символа
+            <div *ngIf="name.errors['maxlength']">
+              Максимум 20 символов
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button>Регистрация</button>
+      </div>
+      <div *ngIf="f.submitted && isFail">
+        Ошибка регистрации<br />
+      </div>
+    </form>
+  </div>
 </div>
-  

@@ -19,8 +19,8 @@ export class AuthService {
         httpOptions);
     }
     
-    registr(username:string, password: number): Observable<any> {
-        return this.http.post(API + "signup", {username, password},
+    registr(username:string, password: number, name:string, surname:string): Observable<any> {
+        return this.http.post(API + "signup", {username, password, name, surname},
         httpOptions);
     }
 }

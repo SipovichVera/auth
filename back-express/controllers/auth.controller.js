@@ -2,6 +2,7 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
+const Lesson = db.lesson;
 const Op = db.Sequelize.Op;
 let jwt = require("jsonwebtoken");
 let bcrypt = require("bcryptjs");
@@ -11,7 +12,9 @@ exports.signup = (req, res) => {
   // Save User to Database
   User.create({
     username: req.body.username,
-    password: bcrypt.hashSync(req.body.password, 8)
+    password: bcrypt.hashSync(req.body.password, 8),
+    name: req.body.name,
+    surname: req.body.surname,
   })
     .then(user => {
       if (req.body.roles) {
@@ -61,6 +64,7 @@ exports.signin = (req, res) => {
         expiresIn: 86400 // 24 hours
       });
       let authorities = [];
+      user.lesson().then(lesson => console.log(lesson));
       user.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push(roles[i].name);
@@ -68,6 +72,8 @@ exports.signin = (req, res) => {
         res.status(200).send({
           id: user.id,
           username: user.username,
+          name: user.name,
+          surname: user.surname,
           roles: authorities,
           accessToken: token
         });

@@ -15,7 +15,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
-db.car = require("../models/car.model.js")(sequelize, Sequelize);
+db.lesson = require("../models/lesson.model.js")(sequelize, Sequelize);
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",
@@ -26,5 +26,17 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
-db.ROLES = ["user", "admin", "tutor"];
+db.lesson.belongsToMany(db.user, {
+  through: "user_lesson",
+  foreignKey: "lessonId",
+  otherKey: "userId"
+});
+db.user.belongsToMany(db.lesson, {
+  through: "user_lesson",
+  foreignKey: "userId",
+  otherKey: "lessonId"
+});
+
+db.ROLES = ["user", "admin", "tutor", "student"];
+db.LESSON = ["oop", "database"];
 module.exports = db;

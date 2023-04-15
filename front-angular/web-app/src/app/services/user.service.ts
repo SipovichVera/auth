@@ -17,7 +17,7 @@ export class UserService {
   currentUser = new BehaviorSubject<User| null>(null);
   isRegistr: Observable<boolean> = this.currentUser.asObservable().pipe(map((user) => !!user));
   // isNotRegistr: Observable<boolean> = this.currentUser.asObservable().pipe(map((user) => !(!!user)));
-  isAdmin = this.currentUser.asObservable().pipe(map((user) => !!user?.roles.find((role: string) => role === "admin")));
+  isAdmin = this.currentUser.asObservable().pipe(map((user) => !!user?.roles?.find((role: string) => role === "admin")));
   constructor(private http: HttpClient) { }
 
   clearUser(): void {
