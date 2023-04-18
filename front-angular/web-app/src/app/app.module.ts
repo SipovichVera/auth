@@ -13,6 +13,7 @@ import { CarsAddComponent } from './components/cars-add/cars-add.component';
 import { CarsDetailsComponent } from './components/cars-details/cars-details.component';
 import { VideoChatComponent } from './components/video-chat/video-chat.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { VideoCallModule } from './video-call/video-call.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LessonComponent } from './components/lesson/lesson.component';
     FormsModule,
     AuthModule,
     HttpClientModule,
+    VideoCallModule
   ],
   providers: [],
   bootstrap: [AppComponent]

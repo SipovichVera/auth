@@ -6,6 +6,7 @@ import { CarsListComponent } from './components/cars-list/cars-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrComponent } from './components/registr/registr.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { VideoCallComponent } from './video-call/video-call.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
@@ -14,7 +15,12 @@ const routes: Routes = [
   { path: 'add', component: CarsAddComponent},
   { path: 'account', component: LessonComponent},
   { path:'signup', component: RegistrComponent},
-  { path:'signin', component: LoginComponent}];
+  { path:'signin', component: LoginComponent},
+  {
+    path: 'lesson-call',
+    component: VideoCallComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
