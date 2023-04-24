@@ -70,13 +70,15 @@ exports.signin = (req, res) => {
                 expiresIn: 86400 // 24 hours
             });
             let authorities = [];
+            let allLessons = [];
             // Lesson.addUser({raw: true}).then(_ => console.log(_));
-            user.getLessons({raw: true}).then(_ => {
-                console.log(_);
-            })
-            user.getRoles().then(roles => {
+            Promise.all([user.getLessons({raw: true}), user.getRoles()]).then(
+              ([lessons, roles]) => {
                 for (let i = 0; i < roles.length; i++) {
-                    authorities.push(roles[i].name);
+                  authorities.push(roles[i].name);
+                }
+                for (let i = 0; i < lessons.length; i++) {
+                  allLessons.push(lessons[i]);
                 }
                 res.status(200).send({
                     id: user.id,
@@ -84,9 +86,27 @@ exports.signin = (req, res) => {
                     name: user.name,
                     surname: user.surname,
                     roles: authorities,
+                    lessons,
                     accessToken: token
                 });
-            });
+              }
+            );
+            // user.getLessons({raw: true}).then(_ => {
+            //     console.log(_);
+            // })
+            // user.getRoles().then(roles => {
+            //     for (let i = 0; i < roles.length; i++) {
+            //         authorities.push(roles[i].name);
+            //     }
+            //     res.status(200).send({
+            //         id: user.id,
+            //         username: user.username,
+            //         name: user.name,
+            //         surname: user.surname,
+            //         roles: authorities,
+            //         accessToken: token
+            //     });
+            // });
         })
         .catch(err => {
             res.status(500).send({message: err.message});

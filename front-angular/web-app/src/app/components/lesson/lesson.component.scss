@@ -1,0 +1,83 @@
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fffef7;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border: 1px solid #789e8b;
+}
+
+.sidenav a, .chapter {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #789e8b;
+    display: block;
+}
+
+.sidenav a {
+    margin-left: 20px;
+}
+
+.sidenav a:hover {
+    border-bottom: 1px solid #789e8b;
+    width: fit-content;
+}
+
+.menu-content {
+    margin-top: 70px;
+}
+
+.chapter {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+main {
+    margin-left: 400px;
+    margin-right: 100px;
+}
+
+.lesson-name {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: #789e8b;
+    text-align: center;
+}
+
+.lesson-description {
+    font-size: 20px;
+}
+
+button {
+    padding: 5px 25px;
+    border-radius: 5px;
+    color: #789e8b;
+    font-weight: 500;
+    font-size: 20px;
+    background: rgb(255, 255, 255);
+    border: 2px solid #789e8b;
+}
+
+.warning {
+    text-transform: uppercase;
+    font-size: 30px;
+    margin: 20px 10px;
+    color: rgb(209, 75, 75)
+}
+
+.user {
+    text-align: center;
+    font-size: 25px;
+    padding: 10x 25px;
+    border-radius: 5px;
+    color: #789e8b;
+    margin: 10px;
+    border: 2px solid #789e8b;
+}

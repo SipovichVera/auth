@@ -1,3 +1,4 @@
+<div class="header-name">Войти в личный кабинет</div>
 <div class="login">
     <div class="login__container">
       <form
@@ -20,10 +21,10 @@
             #username="ngModel"
           />
           <div class="username-danger" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors['required']">Обязательное поле</div>
-            <div *ngIf="username.errors['minlength']">
+            <div class="error" *ngIf="username.errors['required']">Обязательное поле</div>
+            <div class="error" *ngIf="username.errors['minlength']">
                 Минимум 3 символа
-                <div *ngIf="username.errors['maxlength']">
+                <div class="error" *ngIf="username.errors['maxlength']">
                   Максимум 20 символов
                 </div>
             </div>
@@ -40,8 +41,8 @@
             #password="ngModel"
           />
           <div class="pass-danger" *ngIf="password.errors && f.submitted">
-            <div *ngIf="password.errors['required']">Обязательное поле</div>
-            <div *ngIf="password.errors['minlength']">
+            <div class="error" *ngIf="password.errors['required']">Обязательное поле</div>
+            <div class="error" *ngIf="password.errors['minlength']">
               Минимум 4 символа
             </div>
           </div>
@@ -49,7 +50,7 @@
         <div class="form-group">
           <button>Войти</button>
         </div>
-        <div *ngIf="f.submitted && isLoginFailed">
+        <div class="error" *ngIf="f.submitted && isLoginFailed">
           Ошибка входа в систему<br />
         </div>
       </form>

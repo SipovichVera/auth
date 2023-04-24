@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs/internal/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registr',
@@ -23,7 +24,8 @@ export class RegistrComponent implements OnInit {
   
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private route: Router 
     ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class RegistrComponent implements OnInit {
         this.userService.currentUser.next(data.user);
         this.isFail = false;
         this.isSuccess = true;
+        this.route.navigate(['account']);
       },
       (err) => {
         this.errorMessage = err.error.message; 

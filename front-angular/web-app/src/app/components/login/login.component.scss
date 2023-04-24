@@ -5,12 +5,35 @@ label {
 button {
     padding: 5px 20px;
     border-radius: 5px;
-    color: #008a5e;
+    color: #789e8b;
     font-weight: 500;
     background: rgb(255, 255, 255);
-    border: 2px solid #008a5e;
+    border: 2px solid #789e8b;
+    margin-top: 10px;
 }
 
 .label-password {
     margin-right: 15px;
+}
+
+.login {
+    padding: 20px;
+    border: 2px solid #789e8b;
+    border-radius: 10px;
+    margin-left: 42%;
+    width: min-content;
+    background-color: #fff;
+}   
+
+
+.header-name {
+    margin-left: 40%;
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #789e8b;
+}
+
+.error {
+    color: red
 }

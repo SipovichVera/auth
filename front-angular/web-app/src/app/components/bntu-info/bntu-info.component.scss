@@ -1,0 +1,120 @@
+
+.info {
+    margin: 0 50px;
+}
+
+.info-name {
+    margin-left: 20px;
+}
+
+.img-with-content {
+    margin: 50px 0;
+    display: flex;
+    gap: 50px;
+    margin-left: 60px;
+    margin-right: 100px;
+}
+
+.bntu-info {
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.advs {
+    margin: auto 0;
+}
+
+.adv-item {
+    background-color: #fffef7;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #249c76;
+    border-radius: 5px;
+    height: 100px;
+    width: 500px;
+    box-shadow: 5px 10px 2px 1px rgba(29, 79, 60, 0.2);
+    color: gray;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.adv:nth-child(2n) {
+    margin-left: 100px;
+}
+
+.feats {
+    margin: 100px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.feat-item {
+    background-color: #fffef7;
+    padding: 15px;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #249c76;
+    border-radius: 5px;
+    height: 100%;
+    box-shadow: 5px 10px 2px 1px rgba(29, 79, 60, 0.2);
+    color: gray;
+}
+
+.feat-item {
+    transition: 1s; /* Время эффекта */
+    display: block; /* Убираем небольшой отступ снизу */
+    font-size: 18px;
+}
+
+.adv {
+    transition: 1s; /* Время эффекта */
+    display: block; /* Убираем небольшой отступ снизу */
+    font-size: 18px;
+}
+
+.feat-item:hover {
+    transform: scale(1.1); /* Увеличиваем масштаб */
+}
+
+.adv:hover {
+    transform: scale(1.1); /* Увеличиваем масштаб */
+}
+
+h3, h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+h1 {
+    color:#23322d;
+}
+
+.advs-name {
+    font-size: 26px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.line {
+    border-bottom: 1px solid gray;
+    margin: 100px 0;
+    width: 80%;
+    margin-left: 10%;
+}
+
+p {
+    text-align: center;
+}
+
+.bntu-img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.header-name {
+    font-size: 40px;
+}

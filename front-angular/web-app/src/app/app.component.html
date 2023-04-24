@@ -1,14 +1,22 @@
-<img src="./assets/logo_bntu.png" width="50" height="50">
-<div class="container">
-  <div class="nav">
-    <a routerLink="/signup">Регистрация</a>
-    <a *ngIf="!(isRegistr | async)" routerLink="/signin">Войти</a>
-    <a *ngIf="isAdmin | async" routerLink="/account">Lessons</a>
-    <!-- <a *ngIf="isRegistr | async" routerLink="/cars">Cars</a>  -->
-    <a *ngIf="isRegistr | async" (click)="logOut()" href="#">Log Out</a>
+<div class="wrapper">
+  <div class="container">
+    <div  class="header">
+      <img src="./assets/logo_bntu.png" routerLink="/" width="60" height="60">
+      <div class="nav" *ngIf="!(isRegistr | async)">
+        <a routerLink="/signup">Регистрация</a>
+        <a class="login" *ngIf="!(isRegistr | async)" routerLink="/signin">Войти</a>
+        <!-- <a *ngIf="isAdmin | async" routerLink="/account">Lessons</a> -->
+        <!-- <a *ngIf="isRegistr | async" routerLink="/cars">Cars</a>  -->
+        <a *ngIf="isRegistr | async" (click)="logOut()" href="#">Выйти</a>
+      </div>
+      <div class="nav" *ngIf="isRegistr | async">
+        <!-- <a *ngIf="isAdmin | async" routerLink="/account">Lessons</a> -->
+        <!-- <a *ngIf="isRegistr | async" routerLink="/cars">Cars</a>  -->
+        <a class="login" *ngIf="isRegistr | async" (click)="logOut()" href="#">Выйти</a>
+      </div>
+    </div>
   </div>
-  <div *ngIf="!(isAdmin | async) && (isRegistr | async)">
-    Ожидайте разрешения...
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
-  <router-outlet></router-outlet>
 </div>

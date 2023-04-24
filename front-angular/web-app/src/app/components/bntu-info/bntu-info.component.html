@@ -1,0 +1,25 @@
+<div class="info">
+    <div class="header">
+        <h1 class="header-name">Платформа для проведения удаленных лекций</h1>
+        <div class="img-with-content">
+            <img class="bntu-img" src="assets/study.jpg" width="300" height="300">
+            <div class="advs">
+              <div class="adv" *ngFor="let adv of advantages">
+                <div class="adv-item">{{adv}}</div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <h1 class="info-name">БНТУ</h1>
+    <p class="bntu-info">Белорусский национальный технический университет – лидер инженерного образования в Республике Беларусь! <br><br>
+      История БНТУ началась в 1920 году, когда был образован Белорусский политехнический институт.
+      Университет выпустил более 200 тыс. специалистов и по праву является одним из самых крупных и старейших вузов Беларуси. Сегодня это единственный вуз страны, который имеет статус национального.
+    </p>
+    <img class="bntu-img" src="assets/bntu.jpg" width="1000" height="500">
+    <div class="feats">
+      <div *ngFor="let feat of bntuFeatures">
+        <div class="feat-item">{{feat}}</div>
+      </div>
+    </div>
+  </div>

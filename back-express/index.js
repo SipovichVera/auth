@@ -24,6 +24,12 @@ function initial() {
         surname: "Поух",
         username: "redster652@gmail.com"
     }, {include: Lesson})
+    User.create({
+        name: "vera",
+        password: bcrypt.hashSync('1234', 8),
+        surname: "sipovich",
+        username: "vera"
+    }, {include: Lesson})
     Role.create({
         id: 1,
         name: "user"

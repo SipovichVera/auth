@@ -14,6 +14,7 @@ import { CarsDetailsComponent } from './components/cars-details/cars-details.com
 import { VideoChatComponent } from './components/video-chat/video-chat.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { VideoCallModule } from './video-call/video-call.module';
+import { BntuInfoComponent } from './components/bntu-info/bntu-info.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VideoCallModule } from './video-call/video-call.module';
     CarsAddComponent,
     CarsDetailsComponent,
     VideoChatComponent,
-    LessonComponent
+    LessonComponent,
+    BntuInfoComponent,
   ],
   imports: [
     BrowserModule,

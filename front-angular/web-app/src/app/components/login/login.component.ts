@@ -3,6 +3,8 @@ import { UserService } from 'src/app/services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Observable } from 'rxjs';
+import { AccountService } from 'src/app/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private tokenStorage: TokenStorageService,
-    private userService: UserService
+    private userService: UserService,
+    private accountService: AccountService,
+    private route: Router 
     ) { }
 
   ngOnInit(): void {
@@ -38,7 +42,9 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.roles.push(...data.roles);
         this.userService.currentUser.next(data);
-        console.log(this.tokenStorage.getUser());
+        console.log(data);
+        this.accountService.userInfo.next(data);
+        this.route.navigate(['account']);
         // this.reloadPage();
       },
       err => {
