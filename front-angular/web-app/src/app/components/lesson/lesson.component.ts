@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Observable, Subject, combineLatest, map, shareReplay, tap } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
@@ -9,25 +9,37 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './lesson.component.html',
   styleUrls: ['./lesson.component.scss']
 })
-export class LessonComponent implements OnInit {
+export class LessonComponent {
 
   isRegistr: Observable<boolean> = this.userService.isRegistr;
   isAdmin: Observable<boolean> = this.userService.isAdmin;
-  userInfo: any = {surname: "sipovich", username: "vera"};
-  lessons: any[] = [
-    {
-      description:"Object-oriented programming (OOP) is a style of programming characterized by the identification of classes of objects closely linked with the methods (functions) with which they are associated.",
-      id: 1,
-      name: "oop",
-      isLectureInProgress: true
-    },
-    {
-      description:"A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS).",
-      id: 2,
-      name: "bd"
-    },
-  ];
-  activeLesson: any;
+  userInfo$: Observable<any> = this.accountService.userInfo.pipe(
+    shareReplay(), 
+    tap(({lessons}) => {
+      this.activeLessonId$.next(lessons[0].id ?? null);
+    })
+    );
+  // {surname: "sipovich", username: "vera"};
+  lessons$: Observable<any[]> = this.userInfo$.pipe(map(({lessons}) => lessons));
+  // [
+  //   {
+  //     description:"Object-oriented programming (OOP) is a style of programming characterized by the identification of classes of objects closely linked with the methods (functions) with which they are associated.",
+  //     id: 1,
+  //     name: "oop",
+  //     isLectureInProgress: true
+  //   },
+  //   {
+  //     description:"A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS).",
+  //     id: 2,
+  //     name: "bd"
+  //   },
+  // ];
+  activeLessonId$ = new Subject<any>();
+  activeLesson$ = combineLatest([this.lessons$, this.activeLessonId$]).pipe(
+    map(([lessons, lessonId]) => {
+      return lessons.find(({id}) => id === lessonId);
+    })
+  );
 
   constructor(
     private accountService: AccountService,
@@ -36,22 +48,8 @@ export class LessonComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) { }
 
-  ngOnInit(): void {
-    this.getLessons();
-  }
-
-  getLessons() {
-    this.accountService.userInfo.subscribe(res => {
-      this.userInfo = res;
-      this.lessons = res.lessons;
-      console.log(this.lessons);
-      this.cdr.detectChanges();
-    });
-  } 
-
   selectLesson(lessonId: number) {
-      console.log(lessonId);
-      this.activeLesson = {...this.lessons.find(les => les.id === lessonId)};
+    this.activeLessonId$.next(lessonId);
   }
 
   logOut(): void {
