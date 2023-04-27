@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         description: {
           type: Sequelize.STRING
+        },
+        callId: {
+            type: Sequelize.INTEGER
         }
       });
       return Lesson;

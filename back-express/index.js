@@ -12,17 +12,18 @@ const bcrypt = require("bcryptjs");
 const Role = db.role;
 const Lesson = db.lesson;
 const User = db.user;
-db.sequelize.sync({force: true}).then(() => {
-    console.log('Drop and Resync Db');
-    initial();
-});
+// db.sequelize.sync({force: true}).then(() => {
+//     console.log('Drop and Resync Db');
+//     initial();
+// });
 
 function initial() {
     User.create({
         name: "Илья",
         password: bcrypt.hashSync('2281337id', 8),
         surname: "Поух",
-        username: "redster652@gmail.com"
+        username: "redster652@gmail.com",
+        Lessons: [{lessonId: 1}]
     }, {include: Lesson})
     User.create({
         name: "vera",

@@ -22,4 +22,5 @@ module.exports = function(app) {
     next();
 });
   app.get("/api/lesson", [jsonParser], controller.findAll);
+  app.put('/api/lesson/call', [jsonParser], controller.addCall);
 };
